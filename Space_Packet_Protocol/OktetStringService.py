@@ -43,8 +43,6 @@ class OktetStringService:
 
     def request(self):
         'Adds entry to dict if not existing yet'
-        'self.initial_packet_assembly = PacketAssembly(self.apid, self.apid_qualifier)'
-        'self.packet_assembly[self.apid+self.apid_qualifier] = self.initial_packet_assembly'
         self.packet_assembly[self.apid+self.apid_qualifier] = PacketAssembly(self.apid, self.apid_qualifier)
         print('Successfuly assembled the packet')
         'Build the Space Packet'
