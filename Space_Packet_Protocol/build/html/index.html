@@ -1,0 +1,458 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Welcome to Space Packet Protocol’s documentation! &mdash; Space Packet Protocol  documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/TUDSAT.ico"/>
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> Space Packet Protocol
+          
+
+          
+            
+            <img src="_static/TUDSAT.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">Welcome to Space Packet Protocol’s documentation!</a><ul>
+<li><a class="reference internal" href="#module-OktetStringService">Oktet String Service</a></li>
+<li><a class="reference internal" href="#module-SpacePacketService">Space Packet Service</a></li>
+<li><a class="reference internal" href="#module-PacketAssembly">Packet Assembly</a></li>
+<li><a class="reference internal" href="#module-SpacePacket">Space Packet</a></li>
+<li><a class="reference internal" href="#module-PacketDataField">Packet Data Field</a></li>
+<li><a class="reference internal" href="#module-PacketIdenficication">Packet Idenficication</a></li>
+<li><a class="reference internal" href="#module-PacketPrimaryHeader">Packet Primary Header</a></li>
+<li><a class="reference internal" href="#module-PacketSecondaryHeader">Packet Secondary Header</a></li>
+<li><a class="reference internal" href="#module-PacketSequenceControl">Packet Sequence Control</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Space Packet Protocol</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>Welcome to Space Packet Protocol’s documentation!</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="welcome-to-space-packet-protocol-s-documentation">
+<h1>Welcome to Space Packet Protocol’s documentation!<a class="headerlink" href="#welcome-to-space-packet-protocol-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="module-OktetStringService">
+<span id="oktet-string-service"></span><h2>Oktet String Service<a class="headerlink" href="#module-OktetStringService" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="OktetStringService.OktetStringService">
+<em class="property">class </em><code class="descclassname">OktetStringService.</code><code class="descname">OktetStringService</code><span class="sig-paren">(</span><em>apid</em>, <em>apid_qualifier</em>, <em>secondary_header_indicator</em>, <em>qos_requirement</em><span class="sig-paren">)</span><a class="headerlink" href="#OktetStringService.OktetStringService" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Oktet String Service shall transfer Oktet Strings through the Logik Data Path.</p>
+<dl class="method">
+<dt id="OktetStringService.OktetStringService.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>apid</em>, <em>apid_qualifier</em>, <em>secondary_header_indicator</em>, <em>qos_requirement</em><span class="sig-paren">)</span><a class="headerlink" href="#OktetStringService.OktetStringService.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>apid</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Application Process Identifier</li>
+<li><strong>apid_qualifier</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Application Process Identifier Qualifier is an optional parameter to identify the naming domain of the API</li>
+<li><strong>secondary_header_indicator</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – Indicates if a secondary header is present</li>
+<li><strong>qos_requirement</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Quality of Service requirement</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="OktetStringService.OktetStringService.request">
+<code class="descname">request</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#OktetStringService.OktetStringService.request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds entry to dict if not existing yet</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-SpacePacketService">
+<span id="space-packet-service"></span><h2>Space Packet Service<a class="headerlink" href="#module-SpacePacketService" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="SpacePacketService.SpacePacketService">
+<em class="property">class </em><code class="descclassname">SpacePacketService.</code><code class="descname">SpacePacketService</code><span class="sig-paren">(</span><em>space_packet</em>, <em>apid</em>, <em>apid_qualifier</em>, <em>qos_requirement</em><span class="sig-paren">)</span><a class="headerlink" href="#SpacePacketService.SpacePacketService" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Space Packet Service shall transfer Space Packets through the Logik Data Path.</p>
+<dl class="method">
+<dt id="SpacePacketService.SpacePacketService.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>space_packet</em>, <em>apid</em>, <em>apid_qualifier</em>, <em>qos_requirement</em><span class="sig-paren">)</span><a class="headerlink" href="#SpacePacketService.SpacePacketService.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>space_packet</strong> (<a class="reference internal" href="#SpacePacket.SpacePacket" title="SpacePacket.SpacePacket"><em>SpacePacket</em></a>) – The assembled Space Packet</li>
+<li><strong>apid</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Application Process Identifier</li>
+<li><strong>apid_qualifier</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Application Process Identifier Qualifier is an optional parameter to identify the naming domain of the API</li>
+<li><strong>qos_requirement</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Quality of Service requirement</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-PacketAssembly">
+<span id="packet-assembly"></span><h2>Packet Assembly<a class="headerlink" href="#module-PacketAssembly" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-SpacePacket">
+<span id="space-packet"></span><h2>Space Packet<a class="headerlink" href="#module-SpacePacket" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="SpacePacket.SpacePacket">
+<em class="property">class </em><code class="descclassname">SpacePacket.</code><code class="descname">SpacePacket</code><span class="sig-paren">(</span><em>packet_primary_header</em>, <em>packet_data_field</em><span class="sig-paren">)</span><a class="headerlink" href="#SpacePacket.SpacePacket" title="Permalink to this definition">¶</a></dt>
+<dd><p>A Space Packet is used to carry the data in the Space Packet Protocol.</p>
+<dl class="method">
+<dt id="SpacePacket.SpacePacket.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>packet_primary_header</em>, <em>packet_data_field</em><span class="sig-paren">)</span><a class="headerlink" href="#SpacePacket.SpacePacket.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>packet_primary_header</strong> (<a class="reference internal" href="#PacketPrimaryHeader.PacketPrimaryHeader" title="PacketPrimaryHeader.PacketPrimaryHeader"><em>PacketPrimaryHeader</em></a>) – Consists of the Packet Version Number, Packet Identification Field, Packet Sequence Control Field and the Packet Data Length</li>
+<li><strong>packet_data_field</strong> (<a class="reference internal" href="#PacketDataField.PacketDataField" title="PacketDataField.PacketDataField"><em>PacketDataField</em></a>) – Mandatory and consists of the Packet Secondary Header and the User Data Field</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-PacketDataField">
+<span id="packet-data-field"></span><h2>Packet Data Field<a class="headerlink" href="#module-PacketDataField" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="PacketDataField.PacketDataField">
+<em class="property">class </em><code class="descclassname">PacketDataField.</code><code class="descname">PacketDataField</code><span class="sig-paren">(</span><em>packet_secondary_header</em>, <em>user_data_field</em><span class="sig-paren">)</span><a class="headerlink" href="#PacketDataField.PacketDataField" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Packet Data Field contains the optional Packet Secondary Header and the User Data Field.</p>
+<dl class="method">
+<dt id="PacketDataField.PacketDataField.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>packet_secondary_header</em>, <em>user_data_field</em><span class="sig-paren">)</span><a class="headerlink" href="#PacketDataField.PacketDataField.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>packet_secondary_header</strong> (<a class="reference internal" href="#PacketSecondaryHeader.PacketSecondaryHeader" title="PacketSecondaryHeader.PacketSecondaryHeader"><em>PacketSecondaryHeader</em></a>) – The Secondary Header consists of either a Time Code Field only, an Ancillary Data Field only or a Time Code followed by an Ancillary Data Field</li>
+<li><strong>user_data_field</strong> (<em>byte array</em>) – Optional, if a Packet Secondary Header is present otherwise mandatory</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-PacketIdenficication">
+<span id="packet-idenficication"></span><h2>Packet Idenficication<a class="headerlink" href="#module-PacketIdenficication" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="PacketIdenficication.PacketIdentification">
+<em class="property">class </em><code class="descclassname">PacketIdenficication.</code><code class="descname">PacketIdentification</code><span class="sig-paren">(</span><em>packet_type</em>, <em>secondary_header_flag</em>, <em>application_process_identifier</em><span class="sig-paren">)</span><a class="headerlink" href="#PacketIdenficication.PacketIdentification" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Packet Identifier contains the Packet Type and the Application Process Identifier.</p>
+<dl class="method">
+<dt id="PacketIdenficication.PacketIdentification.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>packet_type</em>, <em>secondary_header_flag</em>, <em>application_process_identifier</em><span class="sig-paren">)</span><a class="headerlink" href="#PacketIdenficication.PacketIdentification.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>packet_type</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Used to distinguish if the packet contains telemetry (0) or telecommand (1) data</li>
+<li><strong>secondary_header_flag</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.7)"><em>bool</em></a>) – Indicates if a Secondary Header is present or not</li>
+<li><strong>application_process_identifier</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Unique only in its naming domain</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-PacketPrimaryHeader">
+<span id="packet-primary-header"></span><h2>Packet Primary Header<a class="headerlink" href="#module-PacketPrimaryHeader" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="PacketPrimaryHeader.PacketPrimaryHeader">
+<em class="property">class </em><code class="descclassname">PacketPrimaryHeader.</code><code class="descname">PacketPrimaryHeader</code><span class="sig-paren">(</span><em>packet_version_number</em>, <em>packet_idenficiation</em>, <em>packet_sequence_control</em>, <em>packet_data_length</em><span class="sig-paren">)</span><a class="headerlink" href="#PacketPrimaryHeader.PacketPrimaryHeader" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Packet Primary Header contains information about the Space Packet.</p>
+<dl class="method">
+<dt id="PacketPrimaryHeader.PacketPrimaryHeader.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>packet_version_number</em>, <em>packet_idenficiation</em>, <em>packet_sequence_control</em>, <em>packet_data_length</em><span class="sig-paren">)</span><a class="headerlink" href="#PacketPrimaryHeader.PacketPrimaryHeader.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>packet_version_number</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Shall be set to 0</li>
+<li><strong>packet_idenficiation</strong> (<a class="reference internal" href="#PacketIdenficication.PacketIdentification" title="PacketIdenficication.PacketIdentification"><em>PacketIdentification</em></a>) – Consists of Packet Type, Secondary Header Flag and the API</li>
+<li><strong>packet_sequence_control</strong> (<a class="reference internal" href="#PacketSequenceControl.PacketSequenceControl" title="PacketSequenceControl.PacketSequenceControl"><em>PacketSequenceControl</em></a>) – Devided into Sequence Flag and the Packet Sequence Count or Packet Name</li>
+<li><strong>packet_data_length</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Byte count - 1</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-PacketSecondaryHeader">
+<span id="packet-secondary-header"></span><h2>Packet Secondary Header<a class="headerlink" href="#module-PacketSecondaryHeader" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="PacketSecondaryHeader.PacketSecondaryHeader">
+<em class="property">class </em><code class="descclassname">PacketSecondaryHeader.</code><code class="descname">PacketSecondaryHeader</code><span class="sig-paren">(</span><em>time_code_field</em>, <em>ancillary_data_field</em><span class="sig-paren">)</span><a class="headerlink" href="#PacketSecondaryHeader.PacketSecondaryHeader" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Packet Secondary Header consists of either a Time Code only or an Ancillary Data Field only or both.</p>
+<dl class="method">
+<dt id="PacketSecondaryHeader.PacketSecondaryHeader.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>time_code_field</em>, <em>ancillary_data_field</em><span class="sig-paren">)</span><a class="headerlink" href="#PacketSecondaryHeader.PacketSecondaryHeader.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>time_code_field</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Shall consist of one of the CCSDS specified time codes</li>
+<li><strong>ancillary_data_field</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Not specified by the standard, may contain additional information</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-PacketSequenceControl">
+<span id="packet-sequence-control"></span><h2>Packet Sequence Control<a class="headerlink" href="#module-PacketSequenceControl" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="PacketSequenceControl.PacketSequenceControl">
+<em class="property">class </em><code class="descclassname">PacketSequenceControl.</code><code class="descname">PacketSequenceControl</code><span class="sig-paren">(</span><em>sequence_flags</em>, <em>packet_sequence_count_or_packet_name</em><span class="sig-paren">)</span><a class="headerlink" href="#PacketSequenceControl.PacketSequenceControl" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Packet Sequence Control contains Sequence Flags and information about the sequence count or name.</p>
+<dl class="method">
+<dt id="PacketSequenceControl.PacketSequenceControl.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>sequence_flags</em>, <em>packet_sequence_count_or_packet_name</em><span class="sig-paren">)</span><a class="headerlink" href="#PacketSequenceControl.PacketSequenceControl.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sequence_flags</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – 0 for a continuation segment, 1 for first segment, 2 for last segment and 3 for unsegmented user data</li>
+<li><strong>packet_sequence_count_or_packet_name</strong> (<em>integer</em><em> or </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – For telemetry data sequence count, for telecommand either count or a name</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="indices-and-tables">
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Milenko.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            LANGUAGE:'None',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -4,14 +4,22 @@ class OktetStringService:
     The Oktet String Service shall transfer Oktet Strings through the Logik Data Path.
     """
 
-    'from PacketAssembly import PacketAssembly'
-
     def __init__(self,
                  apid,
                  apid_qualifier,
                  secondary_header_indicator,
                  qos_requirement):
 
+        '''
+        :param apid: Application Process Identifier
+        :type apid: str
+        :param apid_qualifier: Application Process Identifier Qualifier is an optional parameter to identify the naming domain of the API
+        :type apid_qualifier: str
+        :param secondary_header_indicator: Indicates if a secondary header is present
+        :type secondary_header_indicator: bool
+        :param qos_requirement: Quality of Service requirement
+        :type qos_requirement: int
+        '''
         self.apid = apid
         self.apid_qualifier = apid_qualifier
         self.secondary_header_indicator = secondary_header_indicator

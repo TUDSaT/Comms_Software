@@ -12,6 +12,13 @@ class PacketAssembly:
                  apid,
                  apid_qualifier):
 
+         '''
+         :param apid: Application Process Identifier
+         :type apid: str
+         :param apid_qualifier: Application Process Identifier Qualifier is an optional parameter to identify the naming domain of the API
+         :type apid_qualifier: str
+         '''
+
          self.adip = apid
          self.apid_qualifier = apid_qualifier
          self.packet_sequence_count = 0
