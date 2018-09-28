@@ -25,20 +25,9 @@ class PacketAssembly:
          self.space_packet = None
          self.packet_version_number = 0
 
-    def get_apid(self):
-        return self.apid
-
-    def get_apid_qualifier(self):
-        return self.apid_qualifier
-
-    def get_packet_sequence_count(self):
-        return self.packet_sequence_count
-
-    def get_space_packet(self):
-        return self.space_packet
-
     def build_space_packet(self, octet_string):
         self.packet_idenficiation = PacketIdentification(0, 1, self.adip)
+        'ToDo: Implement packet sequence counter'
         self.packet_sequence_control = PacketSequenceControl(0, self.packet_sequence_count)
         self.packet_data_length = len(octet_string) - 1
         self.packet_primary_header = PacketPrimaryHeader(self.packet_version_number,

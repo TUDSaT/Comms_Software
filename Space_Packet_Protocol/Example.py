@@ -22,13 +22,13 @@ oktet_string_service = OktetStringService(apid,
                                           qos_requirement)
 
 'Input example data'
-oktet_string_service.set_oktet_string(oktet_string)
+oktet_string_service.oktet_string = oktet_string
 
 'Request to send it'
 oktet_string_service.request()
 
 'Get the Packet'
-space_packet = oktet_string_service.get_space_packet()
+space_packet = oktet_string_service.space_packet
 
 'Output User Data Field'
-print(space_packet.get_user_data_field())
+print(space_packet.packet_data_field.user_data_field)

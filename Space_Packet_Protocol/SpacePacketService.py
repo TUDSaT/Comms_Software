@@ -24,18 +24,6 @@ class SpacePacketService:
         self.apid_qualifier = apid_qualifier
         self.qos_requirement = qos_requirement
 
-    def set_space_packet(self, space_packet):
-        self.space_packet = space_packet
-
-    def set_apid(self, apid):
-        self.apid = apid
-
-    def set_apid_qualifier(self, apid_qualifier):
-        self.apid_qualifier = apid_qualifier
-
-    def set_qos_requirement(self, qos_requirement):
-        self.qos_requirement = qos_requirement
-
     def request(self):
         raise NotImplementedError
 
