@@ -26,9 +26,10 @@ class PacketAssembly:
          self.packet_version_number = 0
 
     def build_space_packet(self, octet_string):
+        'Telemetry'
         self.packet_idenficiation = PacketIdentification(0, 1, self.adip)
         'ToDo: Implement packet sequence counter'
-        self.packet_sequence_control = PacketSequenceControl(0, self.packet_sequence_count)
+        self.packet_sequence_control = PacketSequenceControl(3, self.packet_sequence_count)
         self.packet_data_length = len(octet_string) - 1
         self.packet_primary_header = PacketPrimaryHeader(self.packet_version_number,
                                                          self.packet_idenficiation,
@@ -36,7 +37,7 @@ class PacketAssembly:
                                                          self.packet_data_length)
         'ToDo: This timestamp is not as recommended in the standard - work to do!'
         self.time_code_field = datetime.datetime.utcnow()
-        'No Ancillary Data Field, could be used for applied coding identification'
+        'No Ancillary Data Field, could be used for identification of applied data coding'
         self.packet_secondary_header = PacketSecondaryHeader(self.time_code_field,
                                                              None)
         self.user_data_field = octet_string

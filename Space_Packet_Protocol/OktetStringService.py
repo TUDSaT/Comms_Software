@@ -36,7 +36,7 @@ class OktetStringService:
         self.packet_assembly[self.apid+self.apid_qualifier].build_space_packet(self.oktet_string)
         print('Successfuly build the Space Packet')
         'Get the Space Packet'
-        self.space_packet = self.packet_assembly[self.apid+self.apid_qualifier].get_space_packet()
+        self.space_packet = self.packet_assembly[self.apid+self.apid_qualifier].space_packet
         print('Successfuly got the Space Packet')
 
     def indication(self):
