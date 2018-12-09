@@ -230,7 +230,7 @@
     </param>
     <param>
       <key>num_samps</key>
-      <value>10</value>
+      <value>100</value>
     </param>
     <param>
       <key>type</key>
@@ -293,6 +293,61 @@
     </param>
   </block>
   <block>
+    <key>blocks_null_source</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>bus_conns</key>
+      <value>[[0,],]</value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(256, 289)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>blocks_null_source_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>num_outputs</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>byte</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>1</value>
+    </param>
+  </block>
+  <block>
     <key>blocks_stream_mux</key>
     <param>
       <key>alias</key>
@@ -324,7 +379,7 @@
     </param>
     <param>
       <key>lengths</key>
-      <value>4, 10</value>
+      <value>4, 100</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -379,7 +434,7 @@
     </param>
     <param>
       <key>lengths</key>
-      <value>14, 10</value>
+      <value>104, 1000</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -458,66 +513,7 @@
     </param>
     <param>
       <key>vector</key>
-      <value>(0xAA, 0xFF, 0xBB, 0xEE)</value>
-    </param>
-  </block>
-  <block>
-    <key>blocks_vector_source_x</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(184, 350)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>blocks_vector_source_x_0_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>byte</value>
-    </param>
-    <param>
-      <key>repeat</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>tags</key>
-      <value>[]</value>
-    </param>
-    <param>
-      <key>vlen</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>vector</key>
-      <value>(0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00)</value>
+      <value>(0x1A,0xCF,0xFC,0x1D)</value>
     </param>
   </block>
   <block>
@@ -540,7 +536,7 @@
     </param>
     <param>
       <key>differential</key>
-      <value>False</value>
+      <value>True</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -623,7 +619,7 @@
     </param>
     <param>
       <key>gain_dB_ch0</key>
-      <value>50</value>
+      <value>30</value>
     </param>
     <param>
       <key>nco_freq_ch0</key>
@@ -727,7 +723,7 @@
     </param>
     <param>
       <key>rf_freq</key>
-      <value>530e6</value>
+      <value>433e6</value>
     </param>
     <param>
       <key>samp_rate</key>
@@ -852,6 +848,12 @@
     <sink_key>0</sink_key>
   </connection>
   <connection>
+    <source_block_id>blocks_null_source_0</source_block_id>
+    <sink_block_id>blocks_stream_mux_0_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>1</sink_key>
+  </connection>
+  <connection>
     <source_block_id>blocks_stream_mux_0</source_block_id>
     <sink_block_id>blocks_stream_mux_0_0</sink_block_id>
     <source_key>0</source_key>
@@ -868,12 +870,6 @@
     <sink_block_id>blocks_stream_mux_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>blocks_vector_source_x_0_0</source_block_id>
-    <sink_block_id>blocks_stream_mux_0_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>1</sink_key>
   </connection>
   <connection>
     <source_block_id>digital_constellation_modulator_0</source_block_id>
