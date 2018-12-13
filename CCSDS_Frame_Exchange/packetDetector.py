@@ -24,7 +24,7 @@ def detect(q, pointer):
         print("Error: File " + myFile + " not found!")
         return
     openFile = open(myFile, "r+")
-    inputList = [int(x) for x in openFile.read()]
+    inputList = np.array([int(x) for x in openFile.read()])
     try:
         correlated = np.correlate(inputList[pointer:-1], sync_header, mode='full')
     except ValueError:

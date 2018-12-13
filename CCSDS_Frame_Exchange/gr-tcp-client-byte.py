@@ -6,6 +6,7 @@ from pathlib import Path
 from struct import unpack
 from multiprocessing import Process, Queue
 from packetDetector import detect
+import time
 
 # Initialize variables
 TCP_IP = '127.0.0.1'
@@ -40,17 +41,17 @@ while no_data_counter < 10:
     formatStr = ''.join(["c" for i in range(str(data).count("\\"))])
     unpackedDataList = unpack(formatStr, data)
     unpackedDataStr = ''.join([str(unpackedDataList[x])[-2:-1] for x, val in enumerate(unpackedDataList)])
-    #print("Received " + str(len(unpackedDataList)) + " bit:", unpackedDataStr)
     openFile.write(unpackedDataStr)
     unpackedDataStr = ''
     openFile.close()
+    start = time.time()
     p = Process(target=detect, args=(q,pointer,))
     p.start()
     pointer = q.get()
     p.join()
-    #pointer = detect(pointer)
+    stop = time.time()
+    print("Timing: " + str(stop - start))
 
 # Closing the socket
 client_socket.shutdown(socket.SHUT_RDWR)
 client_socket.close()
-#openFile.close()
