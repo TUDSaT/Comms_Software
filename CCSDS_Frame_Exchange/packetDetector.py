@@ -35,12 +35,10 @@ def detect(q, pointer):
         try:
             corrupted_sync_bit = sync_header.__xor__(inputList[correlated[pointer_temp:-1].argmax()-len(sync_header)+1+pointer_temp+pointer:correlated[pointer_temp:-1].argmax()+1+pointer_temp+pointer])
             corrupted_sync_bit_count = corrupted_sync_bit.sum()
-            # corrupted_sync_bit_count = abs(sum(sync_header)-correlated[correlated[pointer_temp:-1].argmax()+pointer_temp])
         except ValueError:
             print("Correlation failed")
             q.put(pointer)
             return
-
         print("-----------------------------------")
         if corrupted_sync_bit_count == 0:
             print("Sync header found!")

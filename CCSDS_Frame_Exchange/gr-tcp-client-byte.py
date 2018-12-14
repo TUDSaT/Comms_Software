@@ -38,19 +38,30 @@ while no_data_counter < 10:
         no_data_counter += 1
     else:
         no_data_counter = 0
-    formatStr = ''.join(["c" for i in range(str(data).count("\\"))])
-    unpackedDataList = unpack(formatStr, data)
-    unpackedDataStr = ''.join([str(unpackedDataList[x])[-2:-1] for x, val in enumerate(unpackedDataList)])
-    openFile.write(unpackedDataStr)
-    unpackedDataStr = ''
-    openFile.close()
-    start = time.time()
+        formatStr = ''.join(["c" for i in range(str(data).count("\\"))])
+        unpackedDataList = unpack(formatStr, data)
+        unpackedDataStr = ''.join([str(unpackedDataList[x])[-2:-1] for x, val in enumerate(unpackedDataList)])
+        openFile.write(unpackedDataStr)
+        unpackedDataStr = ''
+        openFile.close()
+        try:
+            if not p.is_alive():
+                pointer = q.get()
+                p = Process(target=detect, args=(q,pointer,))
+                p.start()
+        except NameError:
+            p = Process(target=detect, args=(q,pointer,))
+            p.start()
+
+# Make sure file is fully processed
+try:
+    p.join()
+    pointer = q.get()
     p = Process(target=detect, args=(q,pointer,))
     p.start()
-    pointer = q.get()
     p.join()
-    stop = time.time()
-    print("Timing: " + str(stop - start))
+except NameError:
+    print("Connection failed")
 
 # Closing the socket
 client_socket.shutdown(socket.SHUT_RDWR)
