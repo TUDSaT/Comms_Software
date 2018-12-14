@@ -7,30 +7,26 @@ import os
 import sys
 import numpy as np
 from multiprocessing import Process, Queue
+import time
 
-def detect(q, pointer):
+def detect(q, pointer, exchangeDataStr):
+    start = time.time()
     print("Detect method called - Pointer: " + str(pointer))
     # Initialize variables
-    myFile = "test.bin"
     # 0x1ACFFC1D
     #sync_header = [1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1]
     sync_header = np.array([1,1,1,1,1,1,0,0,0,0,0,0,0])
     sync_header_len = len(sync_header)
     packet_size = 100
     pointer_temp = 0
-
-    # Check if file exists and open it
-    if not os.path.exists(myFile):
-        print("Error: File " + myFile + " not found!")
-        return
-    openFile = open(myFile, "r+")
-    inputList = np.array([int(x) for x in openFile.read()])
+    # This has to be changed to make performance more stable over time
+    inputList = np.array([int(x) for x in exchangeDataStr])
     try:
         correlated = np.correlate(inputList[pointer:-1], sync_header, mode='full')
     except ValueError:
         q.put(pointer)
         return
-    # Loop until file end is reached
+    # Loop until array end is reached
     while len(inputList)-pointer > sync_header_len + packet_size:
         try:
             corrupted_sync_bit = sync_header.__xor__(inputList[correlated[pointer_temp:-1].argmax()-len(sync_header)+1+pointer_temp+pointer:correlated[pointer_temp:-1].argmax()+1+pointer_temp+pointer])
@@ -56,6 +52,7 @@ def detect(q, pointer):
             print("Corrupted sync bit count: " + str(corrupted_sync_bit_count))
             pointer = len(inputList) - sync_header_len
             print("Pointer: " + str(pointer))
-    openFile.close()
     q.put(pointer)
+    stop = time.time()
+    print(stop-start)
     return
