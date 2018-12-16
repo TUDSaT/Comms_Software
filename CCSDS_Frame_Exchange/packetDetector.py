@@ -1,26 +1,20 @@
 #!/usr/bin/env python3
 
-# run "sudo apt-get install python3-numpy" in terminal to get numpy
-# https://docs.scipy.org/doc/numpy-1.13.0/reference/arrays.ndarray.html
-
 import os
 import sys
 import numpy as np
 from multiprocessing import Process, Queue
 import time
 
-def detect(q, pointer, exchangeDataStr):
+def detect(q, pointer, inputList):
     start = time.time()
     print("Detect method called - Pointer: " + str(pointer))
     # Initialize variables
     # 0x1ACFFC1D
-    #sync_header = [1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1]
-    sync_header = np.array([1,1,1,1,1,1,0,0,0,0,0,0,0])
+    sync_header = np.array([1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 0, 1])
     sync_header_len = len(sync_header)
-    packet_size = 100
+    packet_size = 16*8 # Packetsize in bit
     pointer_temp = 0
-    # This has to be changed to make performance more stable over time
-    inputList = np.array([int(x) for x in exchangeDataStr])
     try:
         correlated = np.correlate(inputList[pointer:-1], sync_header, mode='full')
     except ValueError:

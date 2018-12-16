@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
 
+# run "sudo apt-get install python3-numpy" in terminal to get numpy
+# https://docs.scipy.org/doc/numpy-1.13.0/reference/arrays.ndarray.html
+
 import os
 import socket
 from pathlib import Path
 from struct import unpack
 from multiprocessing import Process, Queue
 from packetDetector import detect
+import numpy as np
 
 # Initialize variables
 TCP_IP = '127.0.0.1'
@@ -14,7 +18,7 @@ BUFFER_SIZE = 1024
 no_data_counter = 0
 myFile = "test.bin"
 unpackedDataStr = ''
-exchangeDataStr = ''
+exchangeDataStr = np.array(0)
 formatStr = ''
 pointer = 0
 q = Queue()
@@ -33,8 +37,10 @@ while no_data_counter < 10:
         formatStr = ''.join(["c" for i in range(str(data).count("\\"))])
         unpackedDataList = unpack(formatStr, data)
         unpackedDataStr = ''.join([str(unpackedDataList[x])[-2:-1] for x, val in enumerate(unpackedDataList)])
-        exchangeDataStr += unpackedDataStr
-        unpackedDataStr = ''
+        unpackedDataStr = np.array([int(x) for x in unpackedDataStr])
+        exchangeDataStr = np.concatenate((exchangeDataStr, unpackedDataStr), axis=None)
+        print(exchangeDataStr)
+        #unpackedDataStr = ''
         try:
             if not p.is_alive():
                 pointer = q.get()
@@ -57,5 +63,6 @@ client_socket.shutdown(socket.SHUT_RDWR)
 client_socket.close()
 # Save received data to file
 openFile = open(myFile, "w")
-openFile.write(exchangeDataStr)
+a_str = ''.join(str(x) for x in exchangeDataStr)
+openFile.write(a_str)
 openFile.close()
