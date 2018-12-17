@@ -4,6 +4,7 @@ import os
 import socket
 import time
 
+
 # Initialize variables
 TCP_IP = '127.0.0.1'
 TCP_PORT = 8005
@@ -15,6 +16,8 @@ msg_bytes = bytearray.fromhex(msg_str)
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server_socket.connect((TCP_IP, TCP_PORT))
 
+print(msg_bytes)
+
 while(True):
-    server_socket.send(msg_bytes)
+    server_socket.sendall(msg_bytes)
     time.sleep(0.1)

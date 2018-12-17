@@ -4,10 +4,9 @@ import os
 import sys
 import numpy as np
 from multiprocessing import Process, Queue
-import time
+
 
 def detect(q, pointer, inputList):
-    start = time.time()
     print("Detect method called - Pointer: " + str(pointer))
     # Initialize variables
     # 0x1ACFFC1D
@@ -30,14 +29,17 @@ def detect(q, pointer, inputList):
             q.put(pointer)
             return
         print("-----------------------------------")
-        if corrupted_sync_bit_count == 0:
+        if (corrupted_sync_bit_count == 0) and (len(inputList[correlated[pointer_temp:-1].argmax()+2+pointer_temp+pointer:correlated[pointer_temp:-1].argmax()+2+packet_size+pointer_temp+pointer]) == packet_size):
             print("Sync header found!")
             print("Input array size: " + str(len(inputList)))
             print("Correlated array-size: " + str(correlated[pointer_temp:-1].size))
             print("Correlated argmax index: " + str(correlated[pointer_temp:-1].argmax()))
             print("Correlated argmax value: " + str(correlated[correlated[pointer_temp:-1].argmax()+pointer_temp]))
             print(inputList[correlated[pointer_temp:-1].argmax()-len(sync_header)+1+pointer_temp+pointer:correlated[pointer_temp:-1].argmax()+1+pointer_temp+pointer])
-            print(inputList[correlated[pointer_temp:-1].argmax()+2+pointer_temp+pointer:correlated[pointer_temp:-1].argmax()+2+packet_size+pointer_temp+pointer])
+            print(inputList[correlated[pointer_temp:-1].argmax()+1+pointer_temp+pointer:correlated[pointer_temp:-1].argmax()+1+packet_size+pointer_temp+pointer])
+            a = inputList[correlated[pointer_temp:-1].argmax()+1+pointer_temp+pointer:correlated[pointer_temp:-1].argmax()+1+packet_size+pointer_temp+pointer]
+            s = ''.join([str(i) for i in a])
+            print(int(s, 2).to_bytes(len(s) // 8, byteorder='big'))
             pointer_temp = correlated[pointer_temp:-1].argmax()+2+packet_size+pointer_temp
             pointer = pointer + pointer_temp
             print("Pointer: " + str(pointer))
@@ -47,6 +49,4 @@ def detect(q, pointer, inputList):
             pointer = len(inputList) - sync_header_len
             print("Pointer: " + str(pointer))
     q.put(pointer)
-    stop = time.time()
-    print(stop-start)
     return

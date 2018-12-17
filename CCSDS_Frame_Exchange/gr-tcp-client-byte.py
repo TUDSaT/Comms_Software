@@ -11,10 +11,11 @@ from multiprocessing import Process, Queue
 from packetDetector import detect
 import numpy as np
 
+
 # Initialize variables
 TCP_IP = '127.0.0.1'
-TCP_PORT = 8002
-BUFFER_SIZE = 1024
+TCP_PORT = 8001
+BUFFER_SIZE = 2048 # 1024
 no_data_counter = 0
 myFile = "test.bin"
 unpackedDataStr = ''
@@ -39,8 +40,6 @@ while no_data_counter < 10:
         unpackedDataStr = ''.join([str(unpackedDataList[x])[-2:-1] for x, val in enumerate(unpackedDataList)])
         unpackedDataStr = np.array([int(x) for x in unpackedDataStr])
         exchangeDataStr = np.concatenate((exchangeDataStr, unpackedDataStr), axis=None)
-        print(exchangeDataStr)
-        #unpackedDataStr = ''
         try:
             if not p.is_alive():
                 pointer = q.get()
